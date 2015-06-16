@@ -1,4 +1,4 @@
-user: 
-  valid_mail: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  max: 60
-  min: 5
+user:
+  maximum: 60
+  minimum: 6
+  avatar: https://secure.gravatar.com/avatar/#{gravatar_id}
