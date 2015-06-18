@@ -10,3 +10,7 @@ en:
   confirm: "Confirmation"
   welcome: "Welcome to Framgia Training System"
   page_error: "The form contains"
+  edit: "Update your profile"
+  update_profile: "Save Changes"
+  update_succes: "Profile updated!"
+  change_avatar: "change"
