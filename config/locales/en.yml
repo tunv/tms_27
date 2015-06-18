@@ -1,7 +1,12 @@
 en:
   title: "Framgia Training System"
   home: "Home"
-  signup: "Sign up now!"
+  signup: "Sign Up"
   help: "Help"
   login: "Log in"
   logout: "Log out"
+  error: "error"
+  create_acount: "Create my account"
+  confirm: "Confirmation"
+  welcome: "Welcome to Framgia Training System"
+  page_error: "The form contains"
