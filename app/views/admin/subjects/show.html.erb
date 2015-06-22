@@ -1,0 +1,13 @@
+<% provide :title, @subject.name %>
+<div class="row">
+  <aside class="col-md-4">
+      <h1><%= @subject.name %></h1>
+      <p><%= @subject.description %></p>
+      <h3><%= t "Admin.task" %></h3>
+      <% @subject.tasks.each do |task| %>
+        <ul>
+          <li><%= task.name %>(<%= task.description %>)</li>
+        </ul>
+      <% end %>
+  </aside>
+</div>
