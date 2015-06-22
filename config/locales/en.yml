@@ -24,6 +24,11 @@ en:
   account: "Account"
   login_please: "Please log in!"
   you_sure: "Are you sure ?"
+  new_course: "Create course"
+  create_course_succ: "Course was successful created!"
+  Day: "Day"
+  Month: "Month"
+  Year: "Year"
   Admin:
     All_user: "All users"
     edit: "|Edit"

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :user_subjects, dependent: :destroy
   has_many :user_tasks, dependent: :destroy
+  has_many :user_courses
 
   FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: Settings.user.maximum}
