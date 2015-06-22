@@ -4,3 +4,5 @@ user:
   remember: 1
   avatar: https://secure.gravatar.com/avatar/#{gravatar_id}
   edit_avatar: http://gravatar.com/emails
+  supervisor: 1
+  notsupervisor: 0
