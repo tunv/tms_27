@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :user_subjects, dependent: :destroy
   has_many :user_tasks, dependent: :destroy
+  has_many :user_courses
 
   FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: Settings.user.maximum}
@@ -28,7 +29,6 @@ class User < ActiveRecord::Base
 
   def authenticated? remember_token
     return false if remember_digest.nil?
-    BCrypt::Password.new remember_digest.is_password? remember_token
   end
 
   def forget

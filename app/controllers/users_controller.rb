@@ -11,9 +11,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
+      log_in @user
       redirect_to @user
     else
-      render "new"
+      render :new
     end
   end
 
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     if @user.update_attributes user_params
-      flash[:success] = I18n.t "update_succes"
+      flash[:success] = t "update_succes"
       redirect_to @user
     else
       render :edit
