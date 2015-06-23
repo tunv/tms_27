@@ -1,0 +1,8 @@
+<ul>
+  <li>
+    <%= link_to subject.name, [:admin, subject] %>
+    <%= link_to t("Admin.edit"), edit_admin_subject_path(subject) %>
+    <%= link_to t("Admin.delete"), [:admin, subject], method: :delete, 
+        data: {confirm: t("you_sure")} %>
+  </li>
+</ul>

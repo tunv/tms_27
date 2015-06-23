@@ -1,0 +1,9 @@
+<div class="form-group">
+  <%= f.label :Task %>
+  <%= f.text_field :name, calss: "form-control" %>
+  <%= f.label :Description %>
+  <%= f.text_field :description, class: "form-control" %>
+  <div class="btn btn-info", id="button">
+  <%= link_to_remove_fields t("Admin.remove_task"), f %>
+  </div>
+</div>

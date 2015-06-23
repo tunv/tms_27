@@ -1,0 +1,19 @@
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for [:admin, @subject] do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+    
+    <h3><%= t "Admin.task" %></h3>
+    <%= f.fields_for :tasks do |task| %>
+      <%= render "task_fields", f: task %>
+    <% end %>
+
+    <%= link_to_add_fields t("Admin.add_task"), f, :tasks %>
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
+  <% end %>
+</div>
