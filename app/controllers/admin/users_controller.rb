@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index]
-  before_action :admin_user, only: [:new, :destroy, :edit]
+  before_action :logged_in_user, only: [:index, :edit, :upadte]
+  before_action :is_admin, only: [:new, :destroy, :edit, :update]
   before_action :set_user, except: [:new, :index, :create]
 
   def new
@@ -52,13 +52,6 @@ class Admin::UsersController < ApplicationController
       store_location
       flash[:danger] = t "login_please"
       redirect_to login_url
-    end
-  end
-
-  def admin_user
-    unless current_user.supervisor?
-    flash[:danger] = t "Admin.not_supervisor"
-    redirect_to admin_root_url
     end
   end
 
