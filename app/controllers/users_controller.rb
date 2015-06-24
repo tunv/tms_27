@@ -1,22 +1,17 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update]
-  
+  before_action :is_admin, only: [:new]
+
   def show
     @user = User.find params[:id]
   end
 
-  def new
-    @user = User.new
+  def index
+    @users = User.paginate page: params[:page]
   end
 
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      redirect_to @user
-    else
-      render :new
-    end
+  def new
+    @user = User.new
   end
 
   def edit

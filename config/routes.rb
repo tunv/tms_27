@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
 
-  resources :users, except: [:index, :destroy]
+  resources :users
   namespace :admin do
     root  "users#index"
     resources :users

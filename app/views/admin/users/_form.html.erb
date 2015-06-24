@@ -14,11 +14,6 @@
     <%= f.label :password_confirmation, t("confirm") %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
 
-    <%= f.label :supervisor, class: "checkbox inline" do %>
-    <%= f.check_box :supervisor %>
-    <span><%= t "Admin.supervisor" %></span>
-    <% end %>
-    
-    <%= f.submit t("submit"), class: "btn btn-primary" %>
+    <%= f.submit t("submit"), class: "btn btn-lg btn btn-success" %>
   <% end %>
 </div>
