@@ -6,3 +6,8 @@ user:
   edit_avatar: http://gravatar.com/emails
   supervisor: 1
   notsupervisor: 0
+subject:
+  finish: Finished
+  status:
+    - Start
+    - Finished

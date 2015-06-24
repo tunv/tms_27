@@ -3,6 +3,16 @@
   <%= f.text_field :name, calss: "form-control" %>
   <%= f.label :Description %>
   <%= f.text_field :description, class: "form-control" %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1"> 
+        <%= f.label :status %>
+      </div>
+      <div class="col-md-4"> 
+        <%= f.select :status, Settings.subject.status %>
+      </div>
+    </div>
+  </div>
   <div class="btn btn-info", id="button">
   <%= link_to_remove_fields t("Admin.remove_task"), f %>
   </div>

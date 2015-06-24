@@ -7,4 +7,12 @@ class Subject < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: Settings.user.maximum}
   validates :description, presence: true
 
+  after_update :check_finish
+  
+  private
+  def check_finish
+    if Settings.subject.finish == status
+      tasks.update_all status: Settings.subject.finish
+    end
+  end
 end
