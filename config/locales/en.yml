@@ -25,6 +25,7 @@ en:
   login_please: "Please log in!"
   you_sure: "Are you sure ?"
   new_course: "Create course"
+  edit_course: "Edit course"
   create_course_succ: "Course was successful created!"
   Day: "Day"
   Month: "Month"
