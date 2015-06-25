@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: {with: FORMAT}, uniqueness:{case_sensitive: false}
   validates :password, presence: true, length: {minimum: Settings.user.minimum}
   validates :password_confirmation, presence: true
+  
+  scope :trainee, ->{where.not supervisor: Settings.user.supervisor}
 
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : 
