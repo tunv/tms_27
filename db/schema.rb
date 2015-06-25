@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621074659) do
+ActiveRecord::Schema.define(version: 20150623082208) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "object_type"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150621074659) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150621074659) do
     t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   create_table "user_courses", force: :cascade do |t|

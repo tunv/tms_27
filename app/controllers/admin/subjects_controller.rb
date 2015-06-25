@@ -42,8 +42,8 @@ class Admin::SubjectsController < ApplicationController
 
   private
   def subject_params
-    params.require(:subject).permit :name, :description,
-      tasks_attributes: [:id, :name, :description, :_destroy]
+    params.require(:subject).permit :name, :description, :status,
+      tasks_attributes: [:id, :name, :description, :status, :_destroy]
   end
 
   def set_subject
