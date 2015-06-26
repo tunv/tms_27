@@ -1,0 +1,9 @@
+<div class="col-md-3 pull-right">
+  <center>
+    <h1><%= t "User.activity" %></h1>
+    <% @activities.each do |activity| %>
+      <%= activity.content %>
+      <%= activity.created_at %><br/>
+    <% end %>
+  </center>
+</div>

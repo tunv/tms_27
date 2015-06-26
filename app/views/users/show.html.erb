@@ -7,5 +7,6 @@
         <%= @user.name %>
       </h1>
     </section>
+    <%= render "courses/activities", collection: @course, as: :course %>
   </aside>
 </div>

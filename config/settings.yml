@@ -6,8 +6,19 @@ user:
   edit_avatar: http://gravatar.com/emails
   supervisor: 1
   notsupervisor: 0
+course:
+  status:
+    - Start
+    - Not Start
 subject:
   finish: Finished
   status:
     - Start
     - Finished
+activity:
+  learn: Started
+  joined: Joined
+  start: start
+  done: Done
+  training: training
+
