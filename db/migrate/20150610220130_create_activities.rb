@@ -1,12 +1,13 @@
 class CreateActivities < ActiveRecord::Migration
   def change
     create_table :activities do |t|
-      t.integer :object_type
-      t.string :name
-      t.string :object_type
+      t.references :user, index: true
+      t.integer :target_id
+      t.string :content
       
 
       t.timestamps null: false
     end
+    add_foreign_key :activities, :users
   end
 end

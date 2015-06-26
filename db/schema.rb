@@ -14,11 +14,14 @@
 ActiveRecord::Schema.define(version: 20150623082208) do
 
   create_table "activities", force: :cascade do |t|
-    t.string   "object_type"
-    t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "target_id"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "course_subjects", force: :cascade do |t|
     t.integer  "course_id"
@@ -31,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150623082208) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "start"
