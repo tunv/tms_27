@@ -7,6 +7,7 @@
         <%= @user.name %>
       </h1>
     </section>
+    <%= render "subjects/subject_form", subject: @subject %>
     <%= render "courses/activities", collection: @course, as: :course %>
   </aside>
 </div>

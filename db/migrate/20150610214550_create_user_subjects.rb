@@ -1,12 +1,13 @@
 class CreateUserSubjects < ActiveRecord::Migration
   def change
     create_table :user_subjects do |t|
-      t.integer :user_id
-      t.integer :subject_id
-      t.datetime :start_at
-      t.boolean :finish
+      t.references :user, index: true
+      t.references :subject, index: true
+      t.string :status
 
-      t.timestamps 
+      t.timestamps null: false
     end
+    add_foreign_key :user_subjects, :users
+    add_foreign_key :user_subjects, :subjects
   end
 end

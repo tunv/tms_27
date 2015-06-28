@@ -51,4 +51,6 @@ en:
     training: "Training"
     start: "start"
     activity: "Activity"
-
+    finished: "Finished"
+    status: "Status"
+    subject: "Subject"

@@ -1,0 +1,15 @@
+<h2><%= t("User.subject") %></h2>
+<div class="list_sub">
+  <ul class="list-group">
+    <li class="list-group-item"><%= subject.name %>
+      <div class="pull-right">
+        <% if current_user? @user %>
+          <div id="subject-<%= subject.id %>">
+            <%= render "subjects/subject_form", subject: subject %>
+          </div>
+        <% end %>
+      </div>
+      <%= render partial: "tasks/task_form", collection: subject.tasks, as: :task %>
+    </li>
+  </ul>
+</div>

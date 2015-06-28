@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses, dependent: :destroy
+  has_many :subjects, through: :user_subjects, dependent: :destroy
+  has_many :user_subjects, dependent: :destroy
 
   FORMAT = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, presence: true, length: {maximum: Settings.user.maximum}
@@ -35,5 +37,23 @@ class User < ActiveRecord::Base
 
   def forget
     update_attribute :remember_digest, nil
+  end
+
+  def training object
+    if object.instance_of? Subject
+      user_subjects.create subject_id: object.id, status: Settings.activity.training
+    end
+  end
+
+  def finished? object
+    if object.instance_of? Subject
+      user_subjects.exists? subject_id: object.id, status: Settings.finished
+    end
+  end
+
+  def training? object
+    if object.instance_of? Subject
+      user_subjects.exists? subject_id: object.id, status: Settings.training
+    end
   end
 end

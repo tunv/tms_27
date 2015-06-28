@@ -76,11 +76,13 @@ ActiveRecord::Schema.define(version: 20150623082208) do
   create_table "user_subjects", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "start_at"
-    t.boolean  "finish"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
+  add_index "user_subjects", ["subject_id"], name: "index_user_subjects_on_subject_id"
+  add_index "user_subjects", ["user_id"], name: "index_user_subjects_on_user_id"
 
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "user_id"
