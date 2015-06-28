@@ -1,6 +1,7 @@
 class Admin::CoursesController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :update]
   before_action :is_admin, except: [:index, :show]
+  before_action :set_course, only: [:edit, :update]
 
   def new
     @course = Course.new
@@ -17,21 +18,23 @@ class Admin::CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find params[:id]
   end
 
   def update
-    @course = Course.find params[:id]
     if @course.update_attributes course_params
-      flash[:success] = I18n.t "Course updated"
-      redirect_to @course
+      flash[:success] = I18n.t "Admin.course_update"
+      redirect_to [:admin, @course]
     else
       render :edit
     end
   end
-  
+
   private
   def course_params
-    params.require(:course).permit :name, :start, :description, :finish
+    params.require(:course).permit :name, :start, :description, :finish, :status, subject_ids: []
+  end
+
+  def set_course
+    @course = Course.find params[:id]
   end
 end

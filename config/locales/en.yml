@@ -46,6 +46,7 @@ en:
     add_task: "Add task"
     remove_task: "Remove task"
     task: "Task"
+    course_update: "Course updated"
   User:
     training: "Training"
     start: "start"
