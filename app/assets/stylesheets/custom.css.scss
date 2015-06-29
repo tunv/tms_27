@@ -156,3 +156,14 @@ img {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.checkbox-list input[type="checkbox"] {
+  display: inline-block;
+  width: 10%;
+}
+
+.checkbox-list input[type="checkbox"] + label {
+  margin-left: 10%;
+  margin-bottom: 10px;
+  width: 80%;
+}
