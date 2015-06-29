@@ -1,8 +1,13 @@
-<div class="col-md-3 pull-right">
+<div class="col-md-13 pull-right">
   <center>
     <h1><%= t "User.activity" %></h1>
     <% @activities.each do |activity| %>
       <%= activity.content %>
+      <% if Settings.activity.joined == activity.content %>
+        <%= t "User.In_course" %>
+      <% else %>
+        <%= t "Admin.subject" %>
+      <% end %>
       <%= activity.created_at %><br/>
     <% end %>
   </center>
