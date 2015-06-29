@@ -1,0 +1,58 @@
+<% provide :title, @course.name %>
+<h1><%= @course.name %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div>
+      <b><%= t "description" %></b></br>
+      <%= @course.description %>
+    </div>
+    <div>
+      <b><%= t "start_day" %></b>
+      <%= @course.start %>
+      <b><%= t "finish_day" %></b>
+      <%= @course.finish %>
+    </div>
+  </div>
+  <div>
+    <div class="btn btn-primary" style="margin: 10px"><%= @course.status %></div>
+    <div><%= link_to t("Admin.add_user"), admin_course_assign_users_path(@course), class: "btn btn-success" %></div>
+  </div>
+</div>
+<div class="container" style="margin-top:40px">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="tr">
+            <div class="td"><%= t "supervisor_of_course" %></div>
+            <div class="td"><%= t "trainee_in_course" %></div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="tr">
+            <div class="td">
+              <ul>
+                <% @course.supervisors.each do |user| %>
+                  <li>
+                    <%= link_to user.name, [:admin, user] %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="td">
+              <div style="overflow:scroll; height:300px">
+                <ul>
+                  <% @course.trainees.each do |user| %>
+                    <li>
+                      <%= link_to user.name, user %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
