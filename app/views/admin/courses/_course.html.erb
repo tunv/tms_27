@@ -1,0 +1,7 @@
+<ul class="courses">
+  <li>
+    <%= link_to course.name, [:admin, course] %>
+    <%= link_to t("Admin.delete"), [:admin, course], method: :delete, 
+      data: {confirm: t("you_sure")} %>
+  </li>
+</ul>

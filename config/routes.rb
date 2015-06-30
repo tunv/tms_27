@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root  "users#index"
     resources :users
-    resources :courses
+    resources :courses do
+      resource :user_courses, only: :show
+      get "assign_users" => "user_courses#show"
+    end
     resources :subjects
   end
 end
