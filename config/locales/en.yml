@@ -18,7 +18,8 @@ en:
   page_error: "The form contains"
   edit: "Update your profile"
   submit: "Submit"
-  update_succes: "Profile updated!"
+  update_succes: "Updated!"
+  error: "can't update"
   change_avatar: "change"
   account: "Account"
   login_please: "Please log in!"
@@ -51,4 +52,7 @@ en:
     training: "Training"
     start: "start"
     activity: "Activity"
+    status: "Status"
+    description: "Description"
+    In_course: "in Course"
 

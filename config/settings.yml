@@ -14,6 +14,9 @@ subject:
   finish: Finished
   status:
     - Start
+  user:
+    - Start
+    - Training
     - Finished
 activity:
   learn: Started
@@ -21,4 +24,3 @@ activity:
   start: start
   done: Done
   training: training
-

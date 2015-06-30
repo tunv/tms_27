@@ -14,6 +14,6 @@ class Course < ActiveRecord::Base
 
   private 
   def set_course_activity
-    users.each {|user| user.activities.create target_id: id, content: Settings.activity.joined}
+    users.each {|user| user.activities.find_or_create_by target_id: id, content: Settings.activity.joined }
   end
 end
