@@ -15,6 +15,7 @@ subject:
   finish: Finished
   status:
     - Start
+    - Finished
   user:
     - Start
     - Training

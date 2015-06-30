@@ -1,10 +1,10 @@
-<div class="panel-heading"><h1><%= course.name %></h1></div>
+<div class="panel-heading"><h1><%= @course.name %></h1></div>
 <div class="status">
   <span class="label label-primary">
-    <%= course.status %>
+    <%= @course.status %>
   </span>
   <h2><%= t "User.description" %></h2>
-  <div class="description"><%= course.description %></div>
+  <div class="description"><%= @course.description %></div>
   <h2><%= t "Admin.All_subject" %></h2>
   <% @subject.each do |subject| %>
     <%= subject.name %>
