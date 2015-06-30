@@ -5,8 +5,10 @@
       <%= activity.content %>
       <% if Settings.activity.joined == activity.content %>
         <%= t "User.In_course" %>
-      <% else %>
+      <% elsif Settings.activity.learn == activity.content %>
         <%= t "Admin.subject" %>
+      <% else %>
+        <%= t "Admin.task" %>
       <% end %>
       <%= activity.created_at %><br/>
     <% end %>
