@@ -1,20 +1,6 @@
 class UserSubjectsController < ApplicationController
   before_action :set_user_subject, only: [:edit, :update]
 
-  def new
-    @user_subject = UserSubject.new
-  end
-
-  def create
-    @user_subject = UserSubject.new usersubject_param
-    if @user_subject.save
-      flash[:success] = I18n.t "create_course_succ"
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
   def edit
   end
 

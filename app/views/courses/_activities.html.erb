@@ -1,10 +1,11 @@
-<div class="col-md-13 pull-right">
+<div class="col-md-14 pull-right">
   <center>
     <h1><%= t "User.activity" %></h1>
     <% @activities.each do |activity| %>
+      <%= @user.name %>
       <%= activity.content %>
       <% if Settings.activity.joined == activity.content %>
-        <%= t "User.In_course" %>
+        <%= @course.name %>
       <% elsif Settings.activity.learn == activity.content %>
         <%= t "Admin.subject" %>
       <% else %>
