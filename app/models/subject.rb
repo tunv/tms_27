@@ -1,4 +1,5 @@
 class Subject < ActiveRecord::Base
+  include PrettyUrl
   belongs_to :user_subjects
   has_many :tasks, dependent: :destroy, inverse_of: :subject
   has_many :courses, through: :course_subjects

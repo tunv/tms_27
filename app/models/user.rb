@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include PrettyUrl
   attr_accessor :remember_token
   has_secure_password
 
