@@ -1,6 +1,5 @@
 class Course < ActiveRecord::Base
   include PrettyUrl
-  after_update :set_course_activity
 
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
@@ -14,11 +13,22 @@ class Course < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: Settings.user.maximum}
   validates :description, presence: true
   validates :status, presence: true, length: {maximum: Settings.user.maximum}
+  
+  after_update :set_course_activity, :check_finish
 
   scope :current_course, ->{where status: Settings.activity.start}
 
   private 
   def set_course_activity
-    users.each {|user| user.activities.find_or_create_by target_id: id, content: Settings.activity.joined }
+    users.each {|user| user.activities.find_or_create_by target_id: id, content: Settings.activity.joined}
+  end
+
+  def check_finish
+    if Settings.subject.finish == status
+      course_subjects.update_all status: Settings.subject.finish
+      subjects.each do |subject|
+        subject.user_subjects.update_all status: Settings.subject.finish
+      end
+    end
   end
 end
