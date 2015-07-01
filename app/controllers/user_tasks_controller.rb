@@ -1,20 +1,6 @@
 class UserTasksController < ApplicationController
   before_action :set_user_task, only: [:edit, :update]
 
-  def new
-    @user_task = UserTask.new
-  end
-
-  def create
-    @user_task = UserTask.new usertask_param
-    if @user_task.save
-      flash[:success] = I18n.t "create_course_succ"
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
   def edit
   end
 
@@ -29,10 +15,10 @@ class UserTasksController < ApplicationController
 
   private
   def set_user_task
-    @user_task = UserSubject.find params[:id]
+    @user_task = UserTask.find params[:id]
   end
 
   def usertask_param
-    params.require(:user_task).permit :finish, :user_id, :task_id
+    params.require(:user_task).permit :status, :user_id, :task_id
   end
 end
