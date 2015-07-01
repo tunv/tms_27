@@ -3,7 +3,6 @@ class CreateCourseSubjects < ActiveRecord::Migration
     create_table :course_subjects do |t|
       t.integer :course_id
       t.integer :subject_id
-      t.datetime :start_at
 
       t.timestamps null: false
     end

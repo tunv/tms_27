@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628010223) do
+ActiveRecord::Schema.define(version: 20150628005755) do
 
   create_table "activities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "target_id"
-    t.string   "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "target_id"
+    t.string   "content"
+    t.integer  "user_id"
   end
 
   add_index "activities", ["user_id"], name: "index_activities_on_user_id"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20150628010223) do
   create_table "course_subjects", force: :cascade do |t|
     t.integer  "course_id"
     t.integer  "subject_id"
-    t.datetime "start_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -34,11 +33,11 @@ ActiveRecord::Schema.define(version: 20150628010223) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "start"
     t.date     "finish"
+    t.string   "status"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -76,8 +75,6 @@ ActiveRecord::Schema.define(version: 20150628010223) do
   create_table "user_subjects", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "start_at"
-    t.boolean  "finish"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
