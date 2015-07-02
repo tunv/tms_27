@@ -19,6 +19,6 @@ class UserTasksController < ApplicationController
   end
 
   def usertask_param
-    params.require(:user_task).permit :status, :user_id, :task_id
+    params.require(:user_task).permit :status
   end
 end

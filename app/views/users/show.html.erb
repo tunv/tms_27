@@ -1,12 +1,47 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-12">
+      <br/><br/>
+      <h3>
+      	<%= gravatar_for @user %>
         <%= @user.name %>
-      </h1>
-    </section>
-    <%= render "courses/activities" %>
-  </aside>
+      </h3>
+      <br/><br/>
+    </div>
+  </div>             
+  <div class="row db-padding-btm db-attached">
+    <%= render "courses/activities", collection: @course, as: :course %>
+    <% @user.courses.each do |course| %>    
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <div class="db-wrapper">
+          <div class="db-pricing-eleven db-bk-color-one">
+            <div class="price">
+              <sup><%= course.name %></sup>
+              <small><%= course.status %></small>
+            </div>
+            <% course.subjects.each do |subject| %>
+              <ul>
+                <li><i class="glyphicon glyphicon-print"></i>
+                  <%= subject.name %>
+                  <% user_subject = UserSubject.find_by(user_id: @user.id, subject_id: subject.id) %>
+                  <%= link_to user_subject.status, edit_user_user_subject_path(@user, user_subject) %>
+                  <% subject.tasks.each do |task| %>
+                    <ul>
+                      <li>
+                        <%= task.name %>
+                        <% user_task = UserTask.find_by(user_id: @user.id, task_id: task.id) %>
+                        <%= link_to user_task.status, edit_user_user_task_path(@user, user_task) %>
+                      </li>
+                    </ul>
+                  <% end %>
+                </li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

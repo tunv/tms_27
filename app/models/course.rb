@@ -28,6 +28,9 @@ class Course < ActiveRecord::Base
       course_subjects.update_all status: Settings.subject.finish
       subjects.each do |subject|
         subject.user_subjects.update_all status: Settings.subject.finish
+        subject.tasks.each do |task|
+          task.user_tasks.update_all status: Settings.subject.finish
+        end
       end
     end
   end
