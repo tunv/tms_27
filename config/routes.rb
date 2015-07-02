@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
 
-  resources :users, except: [:new, :create, :destroy]
+  resources :users do
+    resources :user_subjects, only: [:edit, :update]
+    resources :user_tasks, only: [:edit, :update]
+  end
   resources :courses, only: :show
-  resources :user_subjects, except: [:index, :destroy]
-  resources :user_tasks, except: [:index, :destroy]
+  resources :user_subjects, only: [:edit, :update]
+  resources :user_tasks, only: [:edit, :update]
 
   namespace :admin do
     root  "users#index"
